@@ -1,0 +1,8 @@
+table th:nth-child(2),
+table td:nth-child(2) {
+  width: 200px;
+}
+
+.error {
+  color: red;
+}
