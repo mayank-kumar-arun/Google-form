@@ -108,16 +108,16 @@ const howDoYouManageHypoglycemicSymptoms = [
   },
   {
     label: "By taking medicines",
-    value: "By taking medicines"
+    value: "By taking medicines",
   },
   {
     label: "By taking insulin",
-    value: "By taking insulin"
+    value: "By taking insulin",
   },
   {
     label: "None",
-    value: "None"
-  }
+    value: "None",
+  },
 ];
 
 const initialValues = {
@@ -336,11 +336,11 @@ function GoogleForm() {
                   <div style={{ width: "100%" }}>
                     <div className="title mb-3">
                       <label htmlFor="initials">
-                        Patient Initials <span className="star">*</span>
-                      </label>
-                      <label className="subTitle">
-                        Enter the patient initials or first few letters of the
-                        name
+                        Patient Initials <span className="star me-2">*</span>
+                        <span className="subTitle">
+                          (Enter the patient initials or first few letters of the
+                          name)
+                        </span>
                       </label>
                     </div>
                     <div>
@@ -650,7 +650,7 @@ function GoogleForm() {
                         None
                       </label>
                     </div>
-                    <div className="mt-4">
+                    <div  style={{marginTop:"4.5rem"}}>
                       <label
                         htmlFor="otherdiabetesComplications"
                         className="mb-2"
@@ -954,7 +954,7 @@ function GoogleForm() {
                         id="BloodPressureSystolic"
                         name="BloodPressureSystolic"
                         className="inputField"
-                        placeholder= "Systolic"
+                        placeholder="Systolic"
                       />
                       <ErrorMessage
                         name="BloodPressureSystolic"
@@ -968,10 +968,12 @@ function GoogleForm() {
                   <div className="number"></div>
                   <div style={{ width: "100%" }}>
                     <div className="title mb-3">
-                      <label
-                        htmlFor="BloodPressureDiastolic"
-                      >Blood Pressure Systolic(mmHg)</label>
-                      <label className="subTitle">Please enter a whole number.</label>
+                      <label htmlFor="BloodPressureDiastolic">
+                        Blood Pressure Systolic(mmHg)
+                      </label>
+                      <label className="subTitle">
+                        Please enter a whole number.
+                      </label>
                     </div>
                     <div>
                       <Field
@@ -979,7 +981,7 @@ function GoogleForm() {
                         id="BloodPressureDiastolic"
                         name="BloodPressureDiastolic"
                         className="inputField"
-                        placeholder= "Diastolic"
+                        placeholder="Diastolic"
                       />
                       <ErrorMessage
                         name="BloodPressureDiastolic"
@@ -2265,12 +2267,13 @@ function GoogleForm() {
               </div>
 
               <div className="row mt-3">
-              <div className="col-lg-6 col-md-6 col-sm-12 d-flex">
+                <div className="col-lg-6 col-md-6 col-sm-12 d-flex">
                   <div className="number">47.</div>
                   <div style={{ width: "100%" }}>
                     <div className="title mb-3">
                       <label htmlFor="inHowManyOfTheLast7DaysDidYouTestYourBloodSugar">
-                       On how many of the last 7 days did you test your blood sugar
+                        On how many of the last 7 days did you test your blood
+                        sugar
                       </label>
                       <label className="subTitle">Please select one.</label>
                     </div>
@@ -2302,7 +2305,8 @@ function GoogleForm() {
                   <div style={{ width: "100%" }}>
                     <div className="title mb-3">
                       <label htmlFor="inHowManyOfTheLast7DaysDidYouTestYourBloodPressure">
-                      On how many of the last 7 days did you test your Blood pressure (BP)
+                        On how many of the last 7 days did you test your Blood
+                        pressure (BP)
                       </label>
                       <label className="subTitle">Please select one.</label>
                     </div>
