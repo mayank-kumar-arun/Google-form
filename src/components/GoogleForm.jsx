@@ -120,6 +120,19 @@ const howDoYouManageHypoglycemicSymptoms = [
   },
 ];
 
+const consultingDoctorRegularly = [
+  { label: "10 - Very important", value: "10 - Very important" },
+  { label: "9", value: "9" },
+  { label: "8", value: "8" },
+  { label: "7", value: "7" },
+  { label: "6", value: "6" },
+  { label: "5", value: "5" },
+  { label: "4", value: "4" },
+  { label: "3", value: "3" },
+  { label: "2", value: "2" },
+  { label: "1 - Not at all important", value: "1 - Not at all important" },
+];
+
 const initialValues = {
   patientID: "",
   initials: "",
@@ -182,6 +195,14 @@ const initialValues = {
   inTheLast1WeekHowManyTimesDidYouCheckYourFeet: "",
   inTheLast1WeekHowManyTimesDidYouWashYourFeet: "",
   AreYouAwareOfBloodSugarLevelsFallingBelowNormalWhenYouAreTakingMedicines: "",
+  consultingDoctorRegularly: "",
+  qualitySleepEveryday: "",
+  haveRoutineForDayToDayActivities: "",
+  haveBodyWeightUnderControl: "",
+  haveQualityDiet: "",
+  controlTheQuantityOfFood: "",
+  takingMedicationsAsDirectedByDoctor: "",
+  physicalActivityEveryDayForAtLeast30Min: ""
 };
 
 const validationSchema = Yup.object({
@@ -338,8 +359,8 @@ function GoogleForm() {
                       <label htmlFor="initials">
                         Patient Initials <span className="star me-2">*</span>
                         <span className="subTitle">
-                          (Enter the patient initials or first few letters of the
-                          name)
+                          (Enter the patient initials or first few letters of
+                          the name)
                         </span>
                       </label>
                     </div>
@@ -650,7 +671,7 @@ function GoogleForm() {
                         None
                       </label>
                     </div>
-                    <div  style={{marginTop:"4.5rem"}}>
+                    <div style={{ marginTop: "4.5rem" }}>
                       <label
                         htmlFor="otherdiabetesComplications"
                         className="mb-2"
@@ -1766,8 +1787,9 @@ function GoogleForm() {
               </div>
 
               <div className="row mt-3">
-                <div className="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex">
+                <div className="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex">                  
                   <div className="number">39.</div>
+
                   <div style={{ width: "100%" }}>
                     <div className="title mb-2">
                       <label>
@@ -1777,8 +1799,10 @@ function GoogleForm() {
                         Please select one option for each row.
                       </label>
                     </div>
+
                     <hr></hr>
-                    <div className="row mb-5 mt-4">
+
+                    <div className="desktopHeading mb-5 mt-4">
                       <div className="col-lg-4 col-md-4 col-sm-12 d-flex"></div>
                       <div className="col-lg-2 col-md-2 col-sm-12 d-flex align-items-center justify-content-center title">
                         Always
@@ -1793,14 +1817,13 @@ function GoogleForm() {
                         Rarely
                       </div>
                     </div>
-                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+
+                    <div className="row d-flex">
                       <div className="col-lg-4 col-md-4 col-sm-12 title mb-3">
                         <label htmlFor="usuallySleepAroundSameTimeEveryday">
                           I usually go to sleep around the same time everyday
                         </label>
-                      </div>
-                      <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row">
+                      </div>      
                           <Field
                             name="usuallySleepAroundSameTimeEveryday"
                             id="usuallySleepAroundSameTimeEveryday"
@@ -1809,7 +1832,7 @@ function GoogleForm() {
                               usuallySleepAroundSameTimeEveryday.map(
                                 (option) => (
                                   <React.Fragment key={option.value}>
-                                    <div className="col-lg-3 col-md-3 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                    <div className="col-lg-2 col-md-2 col-sm-12 d-flex align-items-center justify-content-center mb-3">
                                       <label
                                         htmlFor={option.value}
                                         className="radioLabel"
@@ -1832,18 +1855,17 @@ function GoogleForm() {
                               )
                             }
                           </Field>
-                        </div>
-                      </div>
+                      
+                
                     </div>
 
-                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                    <div className="row d-flex">
                       <div className="col-lg-4 col-md-4 col-sm-12 title mb-3">
                         <label htmlFor="satisfiedWithSleep">
                           I am satisfied with my sleep
                         </label>
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row">
+
                           <Field
                             name="satisfiedWithSleep"
                             id="satisfiedWithSleep"
@@ -1852,7 +1874,7 @@ function GoogleForm() {
                               usuallySleepAroundSameTimeEveryday.map(
                                 (option) => (
                                   <React.Fragment key={option.value}>
-                                    <div className="col-lg-3 col-md-3 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                    <div className="col-lg-2 col-md-2 col-sm-12 d-flex align-items-center justify-content-center mb-3">
                                       <label
                                         htmlFor={option.value}
                                         className="radioLabel"
@@ -1875,18 +1897,17 @@ function GoogleForm() {
                               )
                             }
                           </Field>
-                        </div>
-                      </div>
+                    
+              
                     </div>
 
-                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                    <div className="row d-flex">
                       <div className="col-lg-4 col-md-4 col-sm-12 title mb-3">
                         <label htmlFor="difficultyFallingAsleep">
                           I have difficulty falling asleep
                         </label>
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row">
+                      
                           <Field
                             name="difficultyFallingAsleep"
                             id="difficultyFallingAsleep"
@@ -1895,7 +1916,7 @@ function GoogleForm() {
                               usuallySleepAroundSameTimeEveryday.map(
                                 (option) => (
                                   <React.Fragment key={option.value}>
-                                    <div className="col-lg-3 col-md-3 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                    <div className="col-lg-2 col-md-2 col-sm-12 d-flex align-items-center justify-content-center mb-3">
                                       <label
                                         htmlFor={option.value}
                                         className="radioLabel"
@@ -1918,18 +1939,17 @@ function GoogleForm() {
                               )
                             }
                           </Field>
-                        </div>
-                      </div>
+                       
                     </div>
 
-                    <div className="col-lg-12 col-md-12 col-sm-12 d-flex">
+                    <div className="row d-flex">
                       <div className="col-lg-4 col-md-4 col-sm-12 title mb-3">
                         <label htmlFor="feelRefreshAfterSleep">
                           I feel refreshed after sleep
                         </label>
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-12">
-                        <div className="row">
+
+                    
                           <Field
                             name="feelRefreshAfterSleep"
                             id="feelRefreshAfterSleep"
@@ -1938,7 +1958,7 @@ function GoogleForm() {
                               usuallySleepAroundSameTimeEveryday.map(
                                 (option) => (
                                   <React.Fragment key={option.value}>
-                                    <div className="col-lg-3 col-md-3 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                    <div className="col-lg-2 col-md-2 col-sm-12 d-flex align-items-center justify-content-center mb-3">
                                       <label
                                         htmlFor={option.value}
                                         className="radioLabel"
@@ -1961,8 +1981,8 @@ function GoogleForm() {
                               )
                             }
                           </Field>
-                        </div>
-                      </div>
+                    
+                  
                     </div>
                   </div>
                 </div>
@@ -2718,6 +2738,501 @@ function GoogleForm() {
                         ))
                       }
                     </Field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="card m-4">
+            <div className="pt-4 pb-2 ps-5 pe-5 title">Attitude</div>
+            <hr></hr>
+            <div className="p-4">
+              <div className="row">
+                <div className="col-lg-4 col-md-4 col-sm-12 d-flex">
+                  <div className="number">35.</div>
+                  <div style={{ width: "100%" }}>
+                    <div className="title mb-3">
+                      <label htmlFor="regularPhysicalActivity">
+                        What forms of activity do you undertake regularly?
+                      </label>
+                      <label className="subTitle">
+                        Please select all that apply. If not applicable, choose
+                        None at the bottom
+                      </label>
+                    </div>
+                    {regularPhysicalActivity.map((option) => (
+                      <div key={option} className="checkBoxField">
+                        <Field
+                          type="checkbox"
+                          name="regularPhysicalActivity"
+                          value={option}
+                          id={option}
+                          className="checkbox"
+                          checked={values.regularPhysicalActivity.includes(
+                            option
+                          )}
+                        />
+                        <label htmlFor={option} className="ms-2">
+                          {option}
+                        </label>
+                      </div>
+                    ))}
+                    <div className="checkBoxField">
+                      <Field
+                        type="checkbox"
+                        name="none"
+                        id="none"
+                        className="checkbox"
+                        checked={values.regularPhysicalActivity.length === 0}
+                        onClick={() =>
+                          handleSelectNone(
+                            setFieldValue,
+                            "regularPhysicalActivity"
+                          )
+                        }
+                      />
+                      <label htmlFor="none" className="ms-2">
+                        None
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-4 col-md-4 col-sm-12 d-flex">
+                  <div className="number">36.</div>
+                  <div style={{ width: "100%" }}>
+                    <div className="title mb-3">
+                      <label htmlFor="hoursOfExerciseInLastSevenDays">
+                        How many hours did you exercise in the last 7 days?
+                      </label>
+                      <label className="subTitle">
+                        Please Enter a whole number
+                      </label>
+                    </div>
+                    <div>
+                      <Field
+                        type="number"
+                        id="hoursOfExerciseInLastSevenDays"
+                        name="hoursOfExerciseInLastSevenDays"
+                        className="inputField"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-4 col-md-4 col-sm-12 d-flex">
+                  <div className="number">37.</div>
+                  <div style={{ width: "100%" }}>
+                    <div className="title mb-3">
+                      <label htmlFor="participationInAtleastThirtyMinutesPhyActivity">
+                        On how many of the last SEVEN DAYS did you participate
+                        in at least 30 minutes of physical activity? (Total
+                        minutes of continuous activity, including walking).
+                      </label>
+                      <label className="subTitle">Please select one.</label>
+                    </div>
+                    <div>
+                      <Field
+                        as="select"
+                        name="participationInAtleastThirtyMinutesPhyActivity"
+                        id="participationInAtleastThirtyMinutesPhyActivity"
+                        className="inputField"
+                      >
+                        <option value="" disabled>
+                          Select...
+                        </option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                      </Field>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex">
+                  <div className="number">38.</div>
+                  <div style={{ width: "100%" }}>
+                    <div className="title mb-3">
+                      <label htmlFor="hoursOfSleep">
+                        How many hours of sleep do you typically get in a day?
+                      </label>
+                      <label className="subTitle">
+                        Please Enter a whole number
+                      </label>
+                    </div>
+                    <div>
+                      <Field
+                        type="number"
+                        id="hoursOfSleep"
+                        name="hoursOfSleep"
+                        className="inputField"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="row mt-3">
+                <div className="col-lg-12 col-md-12 col-sm-12 mt-4 d-flex">
+                  <div className="number">57.</div>
+                  <div style={{ width: "100%" }}>
+                    <div className="title mb-2">
+                      <label>
+                        I am listing here some factors that many people have
+                        mentioned as important to manage diabetes. According to
+                        you how important are they on a 10 point scale where 10
+                        means very important and 1 means Not at all important
+                      </label>
+                      <label className="subTitle">
+                        Please select one option for each row.
+                      </label>
+                    </div>
+                    <hr></hr>
+                    <div className="desktopHeading mb-5 mt-4">
+                      <div className="col-lg-2 col-md-2 col-sm-12 d-flex"></div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        10 - Very important
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        9
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        8
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        7
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        6
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        5
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        4
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        3
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        2
+                      </div>
+                      <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center title">
+                        1 - Not at all important
+                      </div>
+                    </div>
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="consultingDoctorRegularly">
+                          Consulting doctor regularly
+                        </label>
+                      </div>
+
+                      <Field
+                        name="consultingDoctorRegularly"
+                        id="consultingDoctorRegularly"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="qualitySleepEveryday">
+                        Quality sleep everyday
+                        </label>
+                      </div>
+
+                      <Field
+                        name="qualitySleepEveryday"
+                        id="qualitySleepEveryday"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="haveRoutineForDayToDayActivities">
+                        Have a routine for day to day activities
+                        </label>
+                      </div>
+
+                      <Field
+                        name="haveRoutineForDayToDayActivities"
+                        id="haveRoutineForDayToDayActivities"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="haveBodyWeightUnderControl">
+                          Have body weight under control
+                        </label>
+                      </div>
+
+                      <Field
+                        name="haveBodyWeightUnderControl"
+                        id="haveBodyWeightUnderControl"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+                   
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="haveQualityDiet">
+                         Have quality diet
+                        </label>
+                      </div>
+
+                      <Field
+                        name="haveQualityDiet"
+                        id="haveQualityDiet"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="controlTheQuantityOfFood">
+                         Control the quantity of food
+                        </label>
+                      </div>
+
+                      <Field
+                        name="controlTheQuantityOfFood"
+                        id="controlTheQuantityOfFood"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="takingMedicationsAsDirectedByDoctor">
+                        Taking medications as directed by doctor
+                        </label>
+                      </div>
+
+                      <Field
+                        name="takingMedicationsAsDirectedByDoctor"
+                        id="takingMedicationsAsDirectedByDoctor"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    <div className="row d-flex">
+                      <div className="col-lg-2 col-md-2 col-sm-12 title mb-3">
+                        <label htmlFor="physicalActivityEveryDayForAtLeast30Min">
+                        Physical activity / exercise every day for at least 30 min
+                        </label>
+                      </div>
+
+                      <Field
+                        name="physicalActivityEveryDayForAtLeast30Min"
+                        id="physicalActivityEveryDayForAtLeast30Min"
+                      >
+                        {({ field }) =>
+                          consultingDoctorRegularly.map((option) => (
+                            <React.Fragment key={option.value}>
+                              <div className="col-lg-1 col-md-1 col-sm-12 d-flex align-items-center justify-content-center mb-3">
+                                <label
+                                  htmlFor={option.value}
+                                  className="radioLabel"
+                                >
+                                  <input
+                                    type="radio"
+                                    id={option.value}
+                                    className="radioInput"
+                                    {...field}
+                                    value={option.value}
+                                    checked={field.value === option.value}
+                                  />
+                                  <span className="checkboxLabel">
+                                    {option.label}
+                                  </span>
+                                </label>
+                              </div>
+                            </React.Fragment>
+                          ))
+                        }
+                      </Field>
+                    </div>
+
+                    
                   </div>
                 </div>
               </div>

@@ -81,9 +81,16 @@
     display: none;
 }
 
+.desktopHeading {
+    display: flex;
+}
+
 @media (max-width: 768px){
     .checkboxLabel{
         font-size: 16px;
         display: block;
+    }
+    .desktopHeading{
+        display: none;
     }
 }
