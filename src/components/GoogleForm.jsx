@@ -323,7 +323,9 @@ function GoogleForm() {
       onSubmit={onSubmit}
     >
       {({ values, handleChange, setFieldValue }) => (
+
         <Form>
+
           <div className="card m-4">
             <div className="pt-4 pb-2 ps-5 pe-5 title">
               Profiling (to be filled in by the treating doctor)
@@ -3244,7 +3246,9 @@ function GoogleForm() {
               Submit
             </button>
           </div>
+
         </Form>
+        
       )}
     </Formik>
   );
